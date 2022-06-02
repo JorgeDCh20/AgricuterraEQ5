@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/psembrios/update}" method="post"
+				th:object="${se}">
+
+
+				<div class="col-sm-12">
+
+					<label class="form-label"></label> <input type="hidden"
+						th:field="*{idSembrio}" class="form-control" ></input>
+
+				</div>
+
+
+				<div class="col-sm-12">
+
+					<label class="form-label">Nombre de sembrio:</label> <select
+						name="selectType" class="form-control" th:field="*{nombreSembrio}">
+						<option value="Uva" selected>Uva</option>
+						<option value="Palta">Palta</option>
+						<option value="Cafe">Cafe</option>
+					</select>
+				</div>
+
+
+				<div class="col-sm-12">
+
+					<label class="form-label">Temperatura Ideal:</label> <input
+						type="text" th:field="*{temperaturaIdeal}" class="form-control"></input>
+
+				</div>
+
+				<div class="col-sm-12">
+
+					<label class="form-label">pH Ideal:</label> <input type="text"
+						th:field="*{phIdeal}" class="form-control"></input>
+
+				</div>
+
+				<div class="col-sm-12">
+
+					<label class="form-label">Humedad Ideal:</label> <input type="text"
+						th:field="*{humedadIdeal}" class="form-control"></input>
+
+				</div>
+
+				<div class="col-sm-12">
+
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+
+				</div>
+
+
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

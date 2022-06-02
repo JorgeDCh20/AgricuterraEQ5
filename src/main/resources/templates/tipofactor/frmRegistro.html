@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/ttipofactores/save}" method="post" th:object="${tf}">
+
+				<div class="col-sm-12">
+					<label class="form-label">Nombre del tipo: </label> <input type="text"
+						required th:field="*{NombreTipoFactor}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
