@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div ></div>
+	<div class="table-responsive">
+		<table class="table table-white">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Sembrio</th>
+					<th>Temperatura Ideal</th>
+					<th>pH Ideal</th>
+					<th>Humedad Ideal</th>
+					<th>Operación</th>
+					<th>Operación</th>
+				</tr>
+			</thead>
+			
+			<tbody id="sembrios-list">
+			<tr th:each="sem:${listaSembrios}">
+			<td th:text="${sem.idSembrio}"></td>
+			<td th:text="${sem.nombreSembrio}"></td>
+			<td th:text="${sem.temperaturaIdeal}"></td>
+			<td th:text="${sem.phIdeal}"></td>
+			<td th:text="${sem.humedadIdeal}"></td>
+			
+			<td>
+			<a th:href="@{/psembrios/delete?id=}+${sem.idSembrio}">
+			Eliminar
+			</a>
+			</td>
+			
+			<td>
+			<a th:href="@{'/psembrios/goupdate/'+${sem.idSembrio}}">
+			Actualizar
+			</a>
+			</td>
+			
+			</tr>
+			</tbody>
+			
+			</table>
+	</div>
+
+</body>
+</html>
