@@ -7,5 +7,6 @@ import pe.edu.upc.agricuterra.entities.Usuario;
 
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
+	public Usuario findByNombreUsuario(String nombreUsuario);
 
 }

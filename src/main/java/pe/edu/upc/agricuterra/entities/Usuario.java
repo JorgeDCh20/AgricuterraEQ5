@@ -1,33 +1,41 @@
 package pe.edu.upc.agricuterra.entities;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
 @Entity
 @Table(name = "Usuario")
-public class Usuario {
+public class Usuario implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int idUsuario;
 	@ManyToOne
-	@JoinColumn(name = "idCategoria",nullable = false)
+	@JoinColumn(name = "idCategoria", nullable = false)
 	private Categoria categoria;
-	
+
 	@Column(name = "fullNameUsuario", nullable = false, length = 47)
 	private String fullNameUsuario;
-	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "birthDateUsuario", nullable = false)
 	private Date birthDateUsuario;
 
@@ -36,15 +44,21 @@ public class Usuario {
 
 	@Column(name = "companyUsuario", nullable = true, length = 45)
 	private String companyUsuario;
-	
+
 	@Column(name = "emailUsuario", nullable = true, length = 45)
 	private String emailUsuario;
-	
+
 	@Column(name = "nombreUsuario", nullable = false, length = 47)
 	private String nombreUsuario;
 
-	@Column(name = "passwordUsuario", nullable = false, length = 47)
+	@Column(name = "passwordUsuario", nullable = false)
 	private String passwordUsuario;
+	
+	private Boolean enabled;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private List<Role> roles;
 
 	public Usuario() {
 		super();
@@ -53,7 +67,7 @@ public class Usuario {
 
 	public Usuario(int idUsuario, Categoria categoria, String fullNameUsuario, Date birthDateUsuario,
 			String specialtyUsuario, String companyUsuario, String emailUsuario, String nombreUsuario,
-			String passwordUsuario) {
+			String passwordUsuario, Boolean enabled, List<Role> roles) {
 		super();
 		this.idUsuario = idUsuario;
 		this.categoria = categoria;
@@ -64,6 +78,8 @@ public class Usuario {
 		this.emailUsuario = emailUsuario;
 		this.nombreUsuario = nombreUsuario;
 		this.passwordUsuario = passwordUsuario;
+		this.enabled = enabled;
+		this.roles = roles;
 	}
 
 	public int getIdUsuario() {
@@ -136,6 +152,26 @@ public class Usuario {
 
 	public void setPasswordUsuario(String passwordUsuario) {
 		this.passwordUsuario = passwordUsuario;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	

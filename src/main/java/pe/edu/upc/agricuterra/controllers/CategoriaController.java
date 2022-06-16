@@ -61,7 +61,7 @@ public class CategoriaController {
 		} catch (Exception e) {
 			model.put("error", e.getMessage());
 		}
-		return "categoria/frmLista";
+		return "redirect:/ccategorias/list";
 	}
 
 
