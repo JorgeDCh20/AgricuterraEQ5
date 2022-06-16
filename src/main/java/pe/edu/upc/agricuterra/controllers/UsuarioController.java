@@ -27,6 +27,7 @@ public class UsuarioController {
 	private IUsuarioService usuarioService;
 	@Autowired
 	private ICategoriaService categoriaService;
+
 	@GetMapping("/new")
 	public String newUsuario(Model model) {
 		model.addAttribute("u", new Usuario());
@@ -36,12 +37,13 @@ public class UsuarioController {
 
 	@PostMapping("/save")
 	public String saveUsuario(@Valid Usuario u, BindingResult binRes, Model model) {
-		if (binRes.hasErrors()) {
-			return "usuario/frmRegistro";
+		if (binRes.hasErrors()|| u.getCategoria().getIdCategoria()==1) {
+			model.addAttribute("mensaje", "ROL INADECUADO");
+			return "redirect:/pusuarios/new";
 		} else {
 			usuarioService.insert(u);
 			model.addAttribute("mensaje", "Se registró correctamente");
-			return "redirect:/pusuarios/new";
+			return "redirect:/";
 		}
 	}
 
@@ -67,14 +69,15 @@ public class UsuarioController {
 		}
 		return "usuario/frmLista";
 	}
+
 	@RequestMapping("/goupdate/{id}")
 	public String goUpdateUsuario(@PathVariable int id, Model model) {
-		Optional<Usuario>objUser=usuarioService.listId(id);
+		Optional<Usuario> objUser = usuarioService.listId(id);
 		model.addAttribute("listaCategorias", categoriaService.list());
-		model.addAttribute("us",objUser.get());
+		model.addAttribute("us", objUser.get());
 		return "usuario/frmActualiza";
 	}
-	
+
 	@PostMapping("/update")
 	public String updateUsuario(Usuario usuario) {
 		usuarioService.update(usuario);

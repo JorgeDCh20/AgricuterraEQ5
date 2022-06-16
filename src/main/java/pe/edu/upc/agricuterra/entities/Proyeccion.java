@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,17 +27,22 @@ public class Proyeccion {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name = "dateFuturaProyeccion", nullable = false)
 	private Date dateFuturaProyeccion;
+	
+	@ManyToOne
+	@JoinColumn(name="idAnalisis" )
+	private Analisis analisis;
 
 	public Proyeccion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Proyeccion(int idProyeccion, String textoDetallesProyeccion, Date dateFuturaProyeccion) {
+	public Proyeccion(int idProyeccion, String textoDetallesProyeccion, Date dateFuturaProyeccion, Analisis analisis) {
 		super();
 		this.idProyeccion = idProyeccion;
 		this.textoDetallesProyeccion = textoDetallesProyeccion;
 		this.dateFuturaProyeccion = dateFuturaProyeccion;
+		this.analisis = analisis;
 	}
 
 	public int getIdProyeccion() {
@@ -62,6 +69,16 @@ public class Proyeccion {
 		this.dateFuturaProyeccion = dateFuturaProyeccion;
 	}
 
+	public Analisis getAnalisis() {
+		return analisis;
+	}
+
+	public void setAnalisis(Analisis analisis) {
+		this.analisis = analisis;
+	}
+
+
+	
 	
 
 	
