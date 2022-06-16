@@ -67,7 +67,7 @@ public class ProyeccionController {
 	// modificaraaa
 
 	@RequestMapping("/goupdate/{id}")
-	public String goUpdatePerson(@PathVariable int id, Model model) {
+	public String goUpdateProyeccion(@PathVariable int id, Model model) {
 		Optional<Proyeccion> objPro = proyeccionService.listId(id);
 		model.addAttribute("pr", objPro.get());
 		return "proyeccion/frmActualiza";
