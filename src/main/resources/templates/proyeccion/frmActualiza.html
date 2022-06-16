@@ -8,6 +8,13 @@
 
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+	
+	<hr style="background-color: #fdfdfd" />
+		<div
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Modificar proyección</div>
+		<hr style="background-color: #228B22" />
+		<hr style="background-color: #fdfdfd" />
+	
 		<div>
 			<form th:action="@{/pproyecciones/update}" method="post"
 				th:object="${pr}">
@@ -18,20 +25,35 @@
 				</div>
 				
 				<div class="col-sm-12">
-					<label class="form-label">Detalles de la proyección: </label> <input type="text"
-						required th:field="*{textoDetallesProyeccion}"
-						class="form-control"></input>
-				</div>
-
-				<div class="col-sm-12">
-					<label class="form-label">Fecha de proyección futura: </label> <input
-						type="date" required th:field="*{dateFuturaProyeccion}"
-						min="2022-01-01" class="form-control"></input>
+					<label class="form-label">Id analisis  </label> <input type="text" required
+						th:field="*{analisis.idAnalisis}" class="form-control"></input>
 				</div>
 
 
+
+				
+				<div class="col-sm-3">
+					<label class="form-label">Fecha de Proyeccion: </label> <input required min="2022-06-17"
+						type="date" th:field="*{dateFuturaProyeccion}" class="form-control"></input>
+				</div>
+
+
+				
+					<div class="col-sm-12">
+
+					<label class="form-label">Detalles de la proyección:</label> <select
+						name="selectType" class="form-control" th:field="*{textoDetallesProyeccion}">
+						<option value="Pésima cosecha" selected>Pésima cosecha</option>
+						<option value="Mala cosecha">Mala cosecha</option>
+						<option value="Regular cosecha">Regular cosecha</option>
+						<option value="Buena cosecha">Buena cosecha</option>
+						<option value="Excelente cosecha">Excelente cosecha</option>
+					</select>
+				</div>
+
+
 				<div class="col-sm-12">
-					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+					<input type="submit" value="Modificar" class="btn btn-dark"></input>
 				</div>
 
 			</form>
