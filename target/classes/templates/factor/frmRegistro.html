@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/ffactores/save}" method="post" th:object="${f}">
+
+				<div class="col-sm-12">
+					<label class="form-label">Tipo de factor: </label> <select
+						name="selectTipoFactor" class="form-control" required
+						th:field="*{tipofactor.idTipoFactor}">
+
+						<option th:each="tf:${listaTipoFactores}" th:value="${tf.idTipoFactor}" 
+							th:text="${tf.NombreTipoFactor}" 
+							th:selected="(${tf.idTipoFactor}==*{tipofactor.idTipoFactor})"></option>
+					</select>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Precipitación: </label> <input
+						type="number" required th:field="*{qPrecipitacion}"
+						 max="100" class="form-control"></input>
+						 <div class="help-text"><i>Ejemplo: 75%</i></div><br>
+				</div>
+				
+				<div class="col-sm-12">
+					<label class="form-label">Humedad: </label> <input
+						type="number" required th:field="*{qHumedad}"
+						max="100" class="form-control"></input>
+						 <div class="help-text"><i>Ejemplo: 75%</i></div><br>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Temperatura: </label> <input
+						type="number" required th:field="*{qTemperatura}"
+					max="45"	 class="form-control"></input>
+						  <div class="help-text"><i>Ejemplo: 25°</i></div><br>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Fosfato: </label> <input
+						type="number" required th:field="*{qFosfato}"
+					max="30"	 class="form-control"></input>
+						  <div class="help-text"><i>De 0 mg a 30 mg </i></div><br>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Nitrato: </label> <input
+						type="number" required th:field="*{qNitrato}"
+					max="30"	 class="form-control"></input>
+						   <div class="help-text"><i>De 0 mg a 30 mg </i></div><br>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Sulfato: </label> <input type="number"
+						required th:field="*{qSulfato}" 
+					max="150"	class="form-control"></input>
+						  <div class="help-text"><i>De 0 mg a 150 mg </i></div><br>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">PH: </label> <input
+						type="number" required th:field="*{qPH}"
+					max="14" class="form-control"></input>
+					   <div class="help-text"><i>De 0 a 14 </i></div><br>
+				</div>
+
+				
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/ffactores/update}" method="post" th:object="${fac}">
+
+				
+				<div class="col-sm-12">
+					<label class="form-label">Id: </label> <input type="text" required
+						th:field="*{idFactor}" class="form-control"></input>
+				</div>
+				
+				
+				<div class="col-sm-12">
+					<label class="form-label">Tipo de factor: </label> <select
+						name="selectTipoFactor" class="form-control"
+						th:field="*{tipofactor.idTipoFactor}">
+
+						<option th:each="tf:${listaTipoFactores}" th:value="${tf.idTipoFactor}"
+							th:text="${tf.NombreTipoFactor}"
+							th:selected="(${tf.idTipoFactor}==*{tipofactor.idTipoFactor})"></option>
+					</select>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Precipitación: </label> <input
+						type="number" required th:field="*{qPrecipitacion}"
+						placeholder="75%" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">Humedad: </label> <input
+						type="number" required th:field="*{qHumedad}"
+						placeholder="75%" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Temperatura: </label> <input
+						type="number" required th:field="*{qTemperatura}"
+						placeholder="25°" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Fosfato: </label> <input
+						type="number" required th:field="*{qFosfato}"
+						placeholder="0 a 30mg" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Nitrato: </label> <input
+						type="number" required th:field="*{qNitrato}"
+						placeholder="0 a 30mg" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Sulfato: </label> <input type="number"
+						required th:field="*{qSulfato}" placeholder="0 a 150mg"
+						class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">PH: </label> <input
+						type="number" required th:field="*{qPH}"
+						placeholder="6.5 a 8.5" class="form-control"></input>
+				</div>
+
+				
+				<div class="col-sm-12">
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
