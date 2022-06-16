@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/pusuarios/save}" method="post" th:object="${u}">
+
+				<div class="col-sm-3">
+					<label class="form-label">Nombres: </label> <input type="text" required
+						th:field="*{fullNameUsuario}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-3">
+					<label class="form-label">Fecha de Nacimiento: </label> <input required 
+						type="date" th:field="*{birthDateUsuario}" class="form-control"></input>
+				</div>
+				<div class="col-sm-3">
+					<label class="form-label">Categoria: </label> <select
+						name="selectCategoria" class="form-control"
+						th:field="*{categoria.idCategoria}">
+						<option th:each="c:${listaCategorias}" th:value="${c.idCategoria}"
+							th:text="${c.nameCategoria}"
+							th:selected="(${c.idCategoria}==*{categoria.idCategoria})"></option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<label class="form-label">Especialidad: </label> <input type="text" required
+						th:field="*{specialtyUsuario}" class="form-control"></input>
+				</div>
+				<div class="col-sm-3">
+					<label class="form-label">Empresa: </label> <input type="text" required
+						th:field="*{companyUsuario}" class="form-control"></input>
+				</div>
+				<div class="col-sm-3">
+					<label class="form-label">E-mail: </label> <input type="text" required
+						th:field="*{emailUsuario}" class="form-control"></input>
+				</div>
+				<div class="col-sm-3">
+					<label class="form-label">Nombre de Usuario: </label> <input 
+						type="text" required th:field="*{nombreUsuario}" class="form-control"></input>
+				</div>
+				<div class="col-sm-3">
+					<label class="form-label">Contraseña: </label> <input
+						type="password" required th:field="*{passwordUsuario}" class="form-control"></input>
+				</div>
+				<br>
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

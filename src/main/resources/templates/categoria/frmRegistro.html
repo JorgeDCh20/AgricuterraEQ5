@@ -8,14 +8,28 @@
 
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+
+		<hr style="background-color: #fdfdfd" />
+		<div
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Registro
+			de Categorias de usuario</div>
+		<hr style="background-color: #fa251b" />
+		<hr style="background-color: #fdfdfd" />
+
 		<div>
 			<form th:action="@{/ccategorias/save}" method="post" th:object="${c}">
 
 				<div class="col-sm-12">
 					<label class="form-label">Nombre: </label> <input type="text"
-						th:field="*{nameCategoria}" class="form-control"></input>
+						required pattern="[a-zA-Z]+" th:field="*{nameCategoria}"
+						maxlength="20"  class="form-control"></input>
+					<div class="help-text">
+						<i>Solo caracteres A-Z</i>
+						<br>
+						<i>maximo 20 caracteres</i>
+					</div>
 				</div>
-
+				<br>
 				<div class="col-sm-12">
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
 				</div>

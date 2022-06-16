@@ -2,43 +2,137 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
 <meta charset="ISO-8859-1">
-<title>SI63</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> 
+<title>Agricuterra</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
 	<header th:fragment="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"><img alt="" th:src="@{/images/UPC_logo_transparente.png}" height="50" width="50"></a>
+
+				<a class="navbar-brand" href="#"><img alt=""
+					th:src="@{/assets/logo.png}" height="50" width="50"> </a>
+
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
 					aria-controls="navbarNavDropdown" aria-expanded="false"
 					aria-label="Toggle navigation">
+
 					<span class="navbar-toggler-icon"></span>
+
 				</button>
+
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link active"
+							th:href="@{/}">Home</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> Categoria</a>
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd"> Usuario</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" th:href="@{/pusuarios/new}">Registrar</a></li>
+								<li><a class="dropdown-item" th:href="@{/pusuarios/list}">Listar</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd"> Sembrio</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" th:href="@{/psembrios/new}">Registrar</a></li>
+								<li><a class="dropdown-item" th:href="@{/psembrios/list}">Listar</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd"> Tipo Factor</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item"
+									th:href="@{/ttipofactores/new}">Registrar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/ttipofactores/list}">Listar</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd"> Proyeccion</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item"
+									th:href="@{/pproyecciones/new}">Registrar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/pproyecciones/list}">Listar</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd"> Categoria</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" th:href="@{/ccategorias/new}">Registrar</a></li>
 								<li><a class="dropdown-item" th:href="@{/ccategorias/list}">Listar</a></li>
 							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd"> Tipo Recomendacion</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item"
+									th:href="@{/ptiporecomendacion/new}">Registrar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/ptiporecomendacion/list}">Listar</a></li>
+							</ul></li>
+							<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd">Factor</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item"
+									th:href="@{/ffactores/new}">Registrar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/ffactores/list}">Listar</a></li>
+							</ul></li>
+											<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd">Recomendacion</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item"
+									th:href="@{/rrecomendacion/new}">Registrar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/rrecomendacion/list}">Listar</a></li>
+							</ul></li>
 					</ul>
+
 				</div>
+
 			</div>
+
 		</nav>
-
 	</header>
-	<div class="container py4>"></div>
+	<div class="container py4"></div>
 	<footer th:fragment="footer" class="container">
-		<p>Programación en web 202201</p>
+		<p>programación en web202201</p>
 	</footer>
-
 </body>
 </html>

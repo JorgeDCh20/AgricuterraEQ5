@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Fecha de Nacimiento</th>
+							<th>Categoria</th>
+							<th>Especialidad</th>
+							<th>Empresa</th>
+							<th>Email</th>
+							<th>Nombre de usuario</th>
+							<th>Contraseña</th>
+							<th>Operacion</th>
+						</tr>
+					</thead>
+					<tbody id="usuarios-list">
+						<tr th:each="us:${listaUsuarios}">
+							<td th:text="${us.idUsuario}"></td>
+							<td th:text="${us.fullNameUsuario}"></td>
+							<td th:text="${#dates.format(us.birthDateUsuario,'dd-MM-yyyy')}"></td>
+							<td th:text="${us.categoria.nameCategoria}"></td>
+							<td th:text="${us.specialtyUsuario}"></td>
+							<td th:text="${us.companyUsuario}"></td>
+							<td th:text="${us.emailUsuario}"></td>
+							<td th:text="${us.nombreUsuario}"></td>
+							<td th:text="${us.passwordUsuario}"></td>
+							<td><a th:href="@{/pusuarios/delete?id=}+${us.idUsuario}">
+									Eliminar </a></td>
+							<td><a th:href="@{'/pusuarios/goupdate/'+${us.idUsuario}}">
+									Modificar </a></td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
