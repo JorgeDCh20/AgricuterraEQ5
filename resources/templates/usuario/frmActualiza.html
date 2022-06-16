@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/panalisis/update}" method="post"
+				th:object="${an}">
+				
+					<div class="col-sm-12">
+
+					<label class="form-label"></label> <input type="hidden"
+						th:field="*{idAnalisis}" class="form-control" ></input>
+
+				</div>
+				
+				<div class="col-sm-3">
+					<label class="form-label">Nombre de usuario: </label> <select
+						name="selectUsuario" class="form-control"
+						th:field="*{usuario.idUsuario}">
+						<option th:each="us:${listaUsuarios}" th:value="${us.idUsuario}"
+							th:text="${us.fullNameUsuario}"
+							th:selected="(${us.idUsuario}==*{usuario.idUsuario})"></option>
+					</select>
+				</div>
+				
+					<div class="col-sm-3">
+					<label class="form-label">Sembrío: </label> <select
+						name="selectSembrio" class="form-control"
+						th:field="*{sembrio.idSembrio}">
+						<option th:each="se:${listaSembrios}" th:value="${se.idSembrio}"
+							th:text="${se.nombreSembrio}"
+							th:selected="(${se.idSembrio}==*{sembrio.idSembrio})"></option>
+					</select>
+				</div>
+				
+					<div class="col-sm-3">
+					<label class="form-label">Proyección: </label> <select
+						name="selectProyeccion" class="form-control"
+						th:field="*{proyeccion.idProyeccion}">
+						<option th:each="pr:${listaProyeccion}" th:value="${pr.idProyeccion}"
+							th:text="${pr.textoDetallesProyeccion}"
+							th:selected="(${pr.idProyeccion}==*{proyeccion.idProyeccion})"></option>
+					</select>
+				</div>
+				
+				<div class="col-sm-12">
+				
+				<label class="form-label">Descripción del análisis:</label>
+				<input type="text" th:field="*{TextAnalisis}" class="form-control"></input>
+				
+				</div>
+				
+				<br>
+				<div class="col-sm-12">
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

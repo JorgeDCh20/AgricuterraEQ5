@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Usuario</th>
+							<th>Sembrío</th>
+							<th>Proyección</th>
+							<th>Descripción de analisis</th>
+							<th>Operación</th>
+							<th>Operación</th>
+						</tr>
+					</thead>
+					<tbody id="analisis-list">
+						<tr th:each="an:${listaAnalisis}">
+							<td th:text="${an.idAnalisis}"></td>
+							<td th:text="${an.usuario.fullNameUsuario}"></td>
+							<td th:text="${an.sembrio.nombreSembrio}"></td>
+							<td th:text="${an.proyeccion.textoDetallesProyeccion}"></td>
+							<td th:text="${an.TextAnalisis}"></td>
+							<td><a th:href="@{/panalisis/delete?id=}+${an.idAnalisis}">
+									Eliminar </a></td>
+							<td><a th:href="@{'/panalisis/goupdate/'+${an.idAnalisis}}">
+									Modificar </a></td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
