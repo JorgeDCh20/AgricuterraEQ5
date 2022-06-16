@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>xd</title>
 </head>
 <body>
 
@@ -12,16 +12,28 @@
 			<form th:action="@{/pproyecciones/save}" method="post"
 				th:object="${p}">
 
+				<hr style="background-color: #fdfdfd" />
+				<div
+					style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Registrar
+					una proyección</div>
+				<hr style="background-color: #228B22" />
+				<hr style="background-color: #fdfdfd" />
+
+
 				<div class="col-sm-12">
-					<label class="form-label">Detalles de la proyección: </label> <input type="text"
-						required th:field="*{textoDetallesProyeccion}"
-						class="form-control"></input>
+					<label class="form-label">Detalles de la proyección: </label>
+					<textarea rows="3" cols="1" required="required"
+						th:field="*{textoDetallesProyeccion}" maxlength="350"
+						autofocus="autofocus" class="form-control"
+						placeholder="Escriba la proyección">
+							
+				</textarea>
 				</div>
 
 				<div class="col-sm-12">
 					<label class="form-label">Fecha de proyección futura: </label> <input
-						type="date" required th:field="*{dateFuturaProyeccion}"
-						min="2022-01-01" class="form-control"></input>
+						type="date" required="required" th:field="*{dateFuturaProyeccion}"
+						min="2022-06-01" class="form-control"></input>
 				</div>
 
 
