@@ -39,7 +39,7 @@ public class FactorController {
 		model.addAttribute("listaTipoFactores", tfService.list());
         model.addAttribute("listaUsuarios", uService.list());
         
-		return "/factor/frmRegistro";
+		return "factor/frmRegistro";
 	}
 
 	@PostMapping("/save")
@@ -65,7 +65,7 @@ public class FactorController {
 			model.addAttribute("error", e.getMessage());
 		}
 
-		return "/factor/frmLista";
+		return "factor/frmLista";
 
 	}
 

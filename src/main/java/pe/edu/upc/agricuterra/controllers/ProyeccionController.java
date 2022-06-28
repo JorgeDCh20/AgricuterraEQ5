@@ -59,7 +59,7 @@ public class ProyeccionController {
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "/proyeccion/frmLista";
+		return "proyeccion/frmLista";
 	}
 
 	@RequestMapping("/delete")

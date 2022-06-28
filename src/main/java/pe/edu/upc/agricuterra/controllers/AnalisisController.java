@@ -64,7 +64,7 @@ public class AnalisisController {
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "/analisis/frmLista";
+		return "analisis/frmLista";
 	}
 
 	@RequestMapping("/delete")

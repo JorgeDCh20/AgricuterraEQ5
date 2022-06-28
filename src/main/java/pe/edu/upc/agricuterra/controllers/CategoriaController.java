@@ -48,7 +48,7 @@ public class CategoriaController {
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "/categoria/frmLista";
+		return "categoria/frmLista";
 	}
 
 	@RequestMapping("/delete")

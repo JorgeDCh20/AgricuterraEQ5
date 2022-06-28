@@ -1,4 +1,4 @@
-package pe.edu.upc.agricuterra.controllers;
+ package pe.edu.upc.agricuterra.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
