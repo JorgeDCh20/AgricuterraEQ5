@@ -7,6 +7,12 @@
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+		<hr style="background-color: #fdfdfd" />
+		<div
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Lista
+			de Tipo Factor</div>
+		<hr style="background-color: #fa251b" />
+		<hr style="background-color: #fdfdfd" />
 		<div>
 			<div class="table-responsive">
 				<table class="table table-white">
@@ -22,12 +28,18 @@
 						<tr th:each="tfr:${listaTipoFactores}">
 							<td th:text="${tfr.idTipoFactor}"></td>
 							<td th:text="${tfr.NombreTipoFactor}"></td>
-							
-							<td><a th:href="@{/ttipofactores/delete?id=}+${tfr.idTipoFactor}">
+
+
+							<td><a style="background-color: red; color: white"
+								class="btn"
+								th:href="@{/ttipofactores/delete?id=}+${tfr.idTipoFactor}">
 									Eliminar </a></td>
 
-							<td><a th:href="@{'/ttipofactores/goupdate/'+${tfr.idTipoFactor}}">
+							<td><a style="background-color: green; color: white"
+								class="btn"
+								th:href="@{'/ttipofactores/goupdate/'+${tfr.idTipoFactor}}">
 									Actualizar </a></td>
+
 						</tr>
 					</tbody>
 				</table>

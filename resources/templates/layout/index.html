@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -18,89 +18,14 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Usuario</a>
-							<ul class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" th:href="@{/pusuarios/new}">Registrar</a></li>
-								<li><a class="dropdown-item" th:href="@{/pusuarios/list}">Listar</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Sembrio</a>
-							<ul class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" th:href="@{/psembrios/new}">Registrar</a></li>
-								<li><a class="dropdown-item" th:href="@{/psembrios/list}">Listar</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Tipo Factor</a>
-							<ul class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item"
-									th:href="@{/ttipofactores/new}">Registrar</a></li>
-								<li><a class="dropdown-item"
-									th:href="@{/ttipofactores/list}">Listar</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Proyeccion</a>
-							<ul class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item"
-									th:href="@{/pproyecciones/new}">Registrar</a></li>
-								<li><a class="dropdown-item"
-									th:href="@{/pproyecciones/list}">Listar</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Categoria</a>
-							<ul class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" th:href="@{/ccategorias/new}">Registrar</a></li>
-								<li><a class="dropdown-item" th:href="@{/ccategorias/list}">Listar</a></li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Tipo Recomendacion</a>
-							<ul class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" th:href="@{/ptiporecomendacion/new}">Registrar</a></li>
-								<li><a class="dropdown-item" th:href="@{/ptiporecomendacion/list}">Listar</a></li>
-							</ul></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">Bienvenido ha Agricuterra</div>
                 <div class="masthead-heading text-uppercase">Es bueno tenerte con nosotros</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Conocenos</a>
+                </div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="/ffactores/new">Inicia</a>
             </div>
         </header>
         <!-- Services-->

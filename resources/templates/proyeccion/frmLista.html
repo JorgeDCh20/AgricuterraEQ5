@@ -7,13 +7,14 @@
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
-	
-	<hr style="background-color: #fdfdfd" />
+
+		<hr style="background-color: #fdfdfd" />
 		<div
-			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Lista de proyecciones</div>
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Lista
+			de proyecciones</div>
 		<hr style="background-color: #228B22" />
 		<hr style="background-color: #fdfdfd" />
-	
+
 		<div>
 			<div class="table-responsive">
 				<table class="table table-white">
@@ -21,7 +22,7 @@
 						<tr>
 							<th>Id</th>
 							<th>Usuario</th>
-							<th>Detalle proyeccion </th>
+							<th>Detalle proyeccion</th>
 							<th>Detalle analisis</th>
 							<th>Descripción factor</th>
 							<th>Fecha de proyección</th>
@@ -36,17 +37,24 @@
 							<td th:text="${pro.textoDetallesProyeccion}"></td>
 							<td th:text="${pro.analisis.TextAnalisis}"></td>
 							<td th:text="${pro.analisis.factor.nombreFactor}"></td>
-							<td th:text="${#dates.format(pro.dateFuturaProyeccion, 'dd/MM/yyyy')}"></td>
-							
+							<td
+								th:text="${#dates.format(pro.dateFuturaProyeccion, 'dd/MM/yyyy')}"></td>
 
-							<td><a style="background-color: red; color: white" class="btn" th:href="@{/pproyecciones/delete?id=}+${pro.idProyeccion}">
+
+							<td><a style="background-color: red; color: white"
+								class="btn"
+								th:href="@{/pproyecciones/delete?id=}+${pro.idProyeccion}"
+								sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
 									Eliminar </a></td>
 
-							<td><a style="background-color: green; color: white" class="btn" th:href="@{'/pproyecciones/goupdate/'+${pro.idProyeccion}}">
+							<td><a style="background-color: green; color: white"
+								class="btn"
+								th:href="@{'/pproyecciones/goupdate/'+${pro.idProyeccion}}"
+								sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
 									Modificar </a></td>
-									
-							
-							
+
+
+
 						</tr>
 					</tbody>
 				</table>

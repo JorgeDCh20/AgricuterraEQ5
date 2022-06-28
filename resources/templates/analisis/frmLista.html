@@ -7,13 +7,14 @@
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
-	
-	<hr style="background-color: #fdfdfd" />
+
+		<hr style="background-color: #fdfdfd" />
 		<div
-			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Lista de análisis</div>
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Lista
+			de análisis</div>
 		<hr style="background-color: #228B22" />
 		<hr style="background-color: #fdfdfd" />
-	
+
 		<div>
 			<div class="table-responsive">
 				<table class="table table-white">
@@ -33,11 +34,18 @@
 							<td th:text="${an.factor.usuario.fullNameUsuario}"></td>
 							<td th:text="${an.sembrio.nombreSembrio}"></td>
 							<td th:text="${an.TextAnalisis}"></td>
-							<td><a style="background-color: red; color: white" class="btn" th:href="@{/panalisis/delete?id=}+${an.idAnalisis}">
+							<td><a style="background-color: red; color: white"
+								class="btn" th:href="@{/panalisis/delete?id=}+${an.idAnalisis}"
+								sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
 									Eliminar </a></td>
-							<td><a style="background-color: green; color: white" class="btn" th:href="@{'/panalisis/goupdate/'+${an.idAnalisis}}">
+							<td><a style="background-color: green; color: white"
+								class="btn" th:href="@{'/panalisis/goupdate/'+${an.idAnalisis}}"
+								sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
 									Modificar </a></td>
-							<td><a style="background-color: black; color: white" class="btn" th:href="@{'/pproyecciones/gonew/'+${an.idAnalisis}}">
+							<td><a style="background-color: black; color: white"
+								class="btn"
+								th:href="@{'/pproyecciones/gonew/'+${an.idAnalisis}}"
+								sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
 									Proyectar </a></td>
 						</tr>
 
