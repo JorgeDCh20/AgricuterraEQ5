@@ -8,28 +8,25 @@
 
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
-	
 	<hr style="background-color: #fdfdfd" />
-				<div
-					style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Actualizar
-					un tipo de factor</div>
-				<hr style="background-color: #228B22" />
-				<hr style="background-color: #fdfdfd" />
-	
+		<div
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Modificar
+			Tipo Factor</div>
+		<hr style="background-color: #fa251b" />
+		<hr style="background-color: #fdfdfd" />
 		<div>
 			<form th:action="@{/ttipofactores/update}" method="post" th:object="${tif}">
 
 			<div class="col-sm-12">
-					<label class="form-label">Id: </label> <input type="text" required="required"
+					<label class="form-label">Id: </label> <input type="text" required
 						th:field="*{idTipoFactor}" class="form-control"></input>
 				</div>
 			
 				<div class="col-sm-12">
 					<label class="form-label">Nombre del tipo: </label> <input type="text"
-						 maxlength="25" pattern="[A-Za-z]" required="required" th:field="*{NombreTipoFactor}" 
-						 class="form-control"></input>
+						required th:field="*{NombreTipoFactor}" class="form-control"></input>
 				</div>
-
+<br>
 				<div class="col-sm-12">
 					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
 				</div>

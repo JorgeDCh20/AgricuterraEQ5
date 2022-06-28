@@ -7,7 +7,13 @@
 <body>
 
 	<header th:replace="master/master :: header"></header>
-	<div class="container">
+	<div class="container" align=center>	
+	<hr style="background-color: #fdfdfd" />
+		<div
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Modificar
+			 Usuarios</div>
+		<hr style="background-color: #fa251b" />
+		<hr style="background-color: #fdfdfd" />
 		<div>
 			<form th:action="@{/pusuarios/update}" method="post"
 				th:object="${us}">
@@ -52,13 +58,14 @@
 						type="text" th:field="*{nombreUsuario}" class="form-control"></input>
 				</div>
 				<div class="col-sm-3">
-					<label class="form-label">Contraseña: </label> <input type="text"
+					<label class="form-label" style="display: none;">Contraseña: </label> <input type="text" style="display: none;"
 						th:field="*{passwordUsuario}" class="form-control"></input>
 				</div>
 				<br>
 				<div class="col-sm-12">
-					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+					<input type="submit" value="Modificar" class="btn btn-dark"></input>
 				</div>
+				<br>
 			</form>
 		</div>
 

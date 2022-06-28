@@ -7,18 +7,19 @@
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
-		
+
 		<hr style="background-color: #fdfdfd" />
-		<div style="font-family: 'Roboto Condensed', 'sans-serif'; 
-		font-size: 150%" >Lista de Factores</div>
+		<div
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Lista
+			de Factores</div>
 		<hr style="background-color: #fa251b" />
 		<hr style="background-color: #fdfdfd" />
-		
+
 		<div>
 			<div class="table-responsive">
 				<table class="table table-white">
 					<thead>
-						<tr>	
+						<tr>
 							<th>Tipo de Factor</th>
 							<th>Precipitación</th>
 							<th>Humedad</th>
@@ -27,9 +28,9 @@
 							<th>Nitrato</th>
 							<th>Sulfato</th>
 							<th>PH</th>
-							<th>Nombre de factor</th>
+							<th>Descripción de factor</th>
 							<th>Usuario</th>
-			
+
 						</tr>
 					</thead>
 					<tbody id="factores-list">
@@ -44,15 +45,24 @@
 							<td th:text="${fc.qPH}"></td>
 							<td th:text="${fc.nombreFactor}"></td>
 							<td th:text="${fc.usuario.fullNameUsuario}"></td>
-							
-							
-							<td><a th:href="@{/ffactores/delete?id=}+${fc.idFactor}">
+
+
+							<td><a style="background-color: red; color: white"
+								class="btn" th:href="@{/ffactores/delete?id=}+${fc.idFactor}"
+								sec:authorize="hasAnyAuthority('ROLE_AGRICULTOR','ROLE_EMPRESARIO')">
 									Eliminar </a></td>
 
-							<td><a th:href="@{'/ffactores/goupdate/'+${fc.idFactor}}">
+							<td><a style="background-color: green; color: white"
+								class="btn" th:href="@{'/ffactores/goupdate/'+${fc.idFactor}}"
+								sec:authorize="hasAnyAuthority('ROLE_AGRICULTOR','ROLE_EMPRESARIO')">
 									Actualizar </a></td>
+
+							<td><a style="background-color: black; color: white"
+								class="btn" th:href="@{'/panalisis/gonew/'+${fc.idFactor}}"
+								sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
+									Analizar </a></td>
 						</tr>
-						
+
 					</tbody>
 				</table>
 			</div>
