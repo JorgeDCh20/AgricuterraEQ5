@@ -11,6 +11,7 @@ public interface IFactorService {
 
 	List<Factor> list();
 	
+	
 	public void delete(int idFactor);
 
 	Optional<Factor> listId(int idFactor);

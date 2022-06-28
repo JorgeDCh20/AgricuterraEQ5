@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import pe.edu.upc.agricuterra.entities.Analisis;
 import pe.edu.upc.agricuterra.entities.Proyeccion;
+import pe.edu.upc.agricuterra.serviceinterfaces.IAnalisisService;
 import pe.edu.upc.agricuterra.serviceinterfaces.IProyeccionService;
 
 @Controller
@@ -24,12 +26,20 @@ public class ProyeccionController {
 
 	@Autowired
 	private IProyeccionService proyeccionService;
-
-	@GetMapping("/new")
-	public String newProyeccion(Model model) {
+	
+	@Autowired
+	private IAnalisisService analisisService;
+	
+	@RequestMapping("/gonew/{id}")
+	public String gonew(@PathVariable int id, Model model) {
+		Optional<Analisis> objAna= analisisService.listId(id);
+		model.addAttribute("pr", objAna.get());
 		model.addAttribute("p", new Proyeccion());
 		return "proyeccion/frmRegistro";
 	}
+	
+	
+	
 
 	@PostMapping("/save")
 	public String saveProyeccion(@Valid Proyeccion pr, BindingResult binRes, Model model) {
@@ -38,7 +48,7 @@ public class ProyeccionController {
 		} else {
 			proyeccionService.insert(pr);
 			model.addAttribute("mensaje", "Se registró correctamente");
-			return "redirect:/pproyecciones/new";
+			return "redirect:/pproyecciones/list";
 		}
 	}
 
@@ -67,7 +77,7 @@ public class ProyeccionController {
 	// modificaraaa
 
 	@RequestMapping("/goupdate/{id}")
-	public String goUpdateProyeccion(@PathVariable int id, Model model) {
+	public String goUpdatePerson(@PathVariable int id, Model model) {
 		Optional<Proyeccion> objPro = proyeccionService.listId(id);
 		model.addAttribute("pr", objPro.get());
 		return "proyeccion/frmActualiza";
@@ -78,6 +88,20 @@ public class ProyeccionController {
 	public String updateProyeccion(Proyeccion p) {
 		proyeccionService.update(p);
 		return "redirect:/pproyecciones/list";
+	}
+	
+
+
+	@RequestMapping("/reporte2")
+	public String proyeccionXpesimaCos(Map<String, Object>model) {
+		model.put("listProyeccionXpesimaCos", proyeccionService.proyeccionXpesimaCos());
+		return "reportes/report2";
+	}
+	
+	@RequestMapping("/reporte3")
+	public String proyeccionXnombrePro(Map<String, Object>model) {
+		model.put("listProyeccionXnombrePro", proyeccionService.proyeccionXnombrePro());
+		return "reportes/report3";
 	}
 
 }
