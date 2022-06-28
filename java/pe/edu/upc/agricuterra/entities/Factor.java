@@ -17,25 +17,25 @@ public class Factor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFactor;
 
-	@Column(name = "qPrecipitacion")
+	@Column(name = "qPrecipitacion", nullable = true)
 	private double qPrecipitacion;
 	
-	@Column(name = "qHumedad")
+	@Column(name = "qHumedad", nullable = true)
 	private double qHumedad;
 	
-	@Column(name = "qTemperatura")
+	@Column(name = "qTemperatura", nullable = true)
 	private double qTemperatura;
 	
-	@Column(name = "qFosfato")
+	@Column(name = "qFosfato", nullable = true)
 	private double qFosfato;
 	
-	@Column(name = "qNitrato")
+	@Column(name = "qNitrato", nullable = true)
 	private double qNitrato;
 	
-	@Column(name = "qSulfato")
+	@Column(name = "qSulfato", nullable = true)
 	private double qSulfato;
 	
-	@Column(name = "qPH")
+	@Column(name = "qPH", nullable = true)
 	private double qPH;
 	
 	@Column(name = "nombreFactor")

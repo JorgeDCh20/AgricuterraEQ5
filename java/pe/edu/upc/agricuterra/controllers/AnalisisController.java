@@ -95,5 +95,12 @@ public class AnalisisController {
 		analisisService.update(a);
 		return "redirect:/panalisis/list";
 	}
+	
+	@RequestMapping("/reporte1")
+	public String analisisXsembrio(Map<String, Object>model) {
+		model.put("listAnalisisSembrio", analisisService.analisisXsembrio());
+		
+		return "reportes/report1";
+	}
 
 }

@@ -16,5 +16,8 @@ public interface IProyeccionService {
 	Optional<Proyeccion> listId(int idProyeccion);
 
 	public void update(Proyeccion proyeccion);
-
+	
+	List<String[]> proyeccionXpesimaCos();
+	
+	List<String[]> proyeccionXnombrePro();
 }

@@ -39,7 +39,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		Categoria categoria = categoriaRepository.findById(objUsuario.getCategoria().getIdCategoria()).get();
 		rol.setRol(categoria.getNameCategoria());
 		rol = roleRepository.save(rol);
-
+		
 		objUsuario.setRoles(new ArrayList<Role>());
 		objUsuario.getRoles().add(rol);
 		objUsuario = usuarioRepository.save(objUsuario);

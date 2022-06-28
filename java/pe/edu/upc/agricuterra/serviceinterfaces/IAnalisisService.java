@@ -16,4 +16,6 @@ public interface IAnalisisService {
 	Optional<Analisis> listId(int idAnalisis);
 	
 	public void update(Analisis analisis);
+	
+	List<String[]> analisisXsembrio();
 }

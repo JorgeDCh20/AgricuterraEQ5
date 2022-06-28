@@ -89,5 +89,19 @@ public class ProyeccionController {
 		proyeccionService.update(p);
 		return "redirect:/pproyecciones/list";
 	}
+	
+
+
+	@RequestMapping("/reporte2")
+	public String proyeccionXpesimaCos(Map<String, Object>model) {
+		model.put("listProyeccionXpesimaCos", proyeccionService.proyeccionXpesimaCos());
+		return "reportes/report2";
+	}
+	
+	@RequestMapping("/reporte3")
+	public String proyeccionXnombrePro(Map<String, Object>model) {
+		model.put("listProyeccionXnombrePro", proyeccionService.proyeccionXnombrePro());
+		return "reportes/report3";
+	}
 
 }

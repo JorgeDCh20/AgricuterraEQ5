@@ -42,6 +42,12 @@ public class AnalisisServiceImpl implements IAnalisisService {
 		analisisRepository.save(analisis);		
 	}
 
+	@Override
+	public List<String[]> analisisXsembrio() {
+		// TODO Auto-generated method stub
+		return analisisRepository.analisisXsembrio();
+	}
+
 	
 	
 

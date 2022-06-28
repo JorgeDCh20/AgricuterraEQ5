@@ -49,4 +49,16 @@ public class ProyeccionServiceImpl implements IProyeccionService {
 
 	}
 
+	@Override
+	public List<String[]> proyeccionXpesimaCos() {
+		// TODO Auto-generated method stub
+		return proyeccionRepository.proyeccionXpesimaCos();
+	}
+
+	@Override
+	public List<String[]> proyeccionXnombrePro() {
+		// TODO Auto-generated method stub
+		return proyeccionRepository.proyeccionXnombrePro();
+	}
+
 }
