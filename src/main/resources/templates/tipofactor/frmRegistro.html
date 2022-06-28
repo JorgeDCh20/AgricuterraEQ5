@@ -8,6 +8,12 @@
 
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+	<hr style="background-color: #fdfdfd" />
+		<div
+			style="font-family: 'Roboto Condensed', 'sans-serif'; font-size: 150%">Registro
+			Tipo Factor</div>
+		<hr style="background-color: #fa251b" />
+		<hr style="background-color: #fdfdfd" />
 		<div>
 			<form th:action="@{/ttipofactores/save}" method="post" th:object="${tf}">
 
@@ -15,7 +21,7 @@
 					<label class="form-label">Nombre del tipo: </label> <input type="text"
 						required th:field="*{NombreTipoFactor}" class="form-control"></input>
 				</div>
-
+<br>
 				<div class="col-sm-12">
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
 				</div>
