@@ -41,11 +41,11 @@
 
 							<td><a style="background-color: red; color: white"
 								class="btn" th:href="@{/psembrios/delete?id=}+${sem.idSembrio}"
-								sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+								sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR')">
 									Eliminar </a></td>
 
 							<td><a style="background-color: green; color: white"
-								class="btn" th:href="@{'/psembrios/goupdate/'+${sem.idSembrio}}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+								class="btn" th:href="@{'/psembrios/goupdate/'+${sem.idSembrio}}" sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR')">
 									Modificar </a></td>
 
 						</tr>

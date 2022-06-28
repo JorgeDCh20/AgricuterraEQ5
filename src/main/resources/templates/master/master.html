@@ -16,7 +16,6 @@
 	<header th:fragment="header">
 
 
-
 		<nav class="navbar navbar-expand-lg navbar-dark bg-success">
 
 			<div class="container-fluid">
@@ -42,7 +41,8 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN')"> Usuario</a>
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_PRUEBA')">
+								Usuario</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" th:href="@{/pusuarios/list}">Listar</a></li>
@@ -52,12 +52,12 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_ESPECIALISTA')">
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA')">
 								Sembrio</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" th:href="@{/psembrios/new}"
-									sec:authorize="hasAnyAuthority('ROLE_ADMIN')">Registrar</a></li>
+									sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR')">Registrar</a></li>
 								<li><a class="dropdown-item" th:href="@{/psembrios/list}">Listar</a></li>
 							</ul></li>
 
@@ -67,7 +67,7 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN')"> Categoria</a>
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR')"> Categoria</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" th:href="@{/ccategorias/new}">Registrar</a></li>
@@ -79,7 +79,7 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_ESPECIALISTA')">
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA')">
 								Tipo Recomendacion</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
@@ -94,7 +94,7 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_ESPECIALISTA','ROLE_AGRICULTOR')">
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA','ROLE_AGRICULTOR')">
 								Recomendacion</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
@@ -109,7 +109,7 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_ESPECIALISTA','ROLE_AGRICULTOR')">
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA','ROLE_AGRICULTOR')">
 								Asignar Recomen.</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
@@ -124,7 +124,7 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN')"> Tipo Factor</a>
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR')"> Tipo Factor</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item"
@@ -138,7 +138,7 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_ESPECIALISTA','ROLE_AGRICULTOR','ROLE_EMPRESARIO')">
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA','ROLE_AGRICULTOR','ROLE_EMPRESARIO')">
 								Factor</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
@@ -152,7 +152,7 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_ESPECIALISTA','ROLE_AGRICULTOR','ROLE_EMPRESARIO')">
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA','ROLE_AGRICULTOR','ROLE_EMPRESARIO')">
 								Analisis</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
@@ -164,12 +164,32 @@
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
 							style="color: #fdfdfd"
-							sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_ESPECIALISTA','ROLE_AGRICULTOR','ROLE_EMPRESARIO')">
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA','ROLE_EMPRESARIO')">
 								Proyeccion</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item"
 									th:href="@{/pproyecciones/list}">Listar</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #fdfdfd"
+							sec:authorize="hasAnyAuthority('ROLE_ADMINISTRATOR','ROLE_ESPECIALISTA')">
+								Reporte</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item"
+									th:href="@{/preportes/reporte1}">Reporte 1</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/preportes/reporte2}">Reporte 2</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/preportes/reporte3}">Reporte 3</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/preportes/reporte4}">Reporte 4</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/preportes/reporte5}">Reporte 5</a></li>
 							</ul></li>
 				</div>
 				<div class="dropdown" style="text-aling: left; width: 175px">
