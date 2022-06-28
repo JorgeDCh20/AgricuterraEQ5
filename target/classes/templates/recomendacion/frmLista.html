@@ -33,14 +33,15 @@
 							<td th:text="${rec.TipoRecomendacion.nameTipoRecomendacion}"></td>
 							<td th:text="${rec.descripcionRecomendacion}"></td>
 
-
-							<td><a
-								th:href="@{/rrecomendacion/delete?id=}+${rec.idRecomendacion}">
+							<td><a style="background-color: red; color: white"
+								class="btn"
+								th:href="@{/rrecomendacion/delete?id=}+${rec.idRecomendacion}" sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
 									Eliminar </a></td>
 
-							<td><a
-								th:href="@{'/rrecomendacion/goupdate/'+${rec.idRecomendacion}}">
-									Actualizar </a></td>
+							<td><a style="background-color: green; color: white"
+								class="btn"
+								th:href="@{'/rrecomendacion/goupdate/'+${rec.idRecomendacion}}" sec:authorize="hasAnyAuthority('ROLE_ESPECIALISTA')">
+									Modificar </a></td>
 						</tr>
 					</tbody>
 				</table>

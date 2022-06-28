@@ -32,11 +32,8 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Descripcion: </label> <input type="text"
-						required th:field="*{descripcionRecomendacion}"
-						maxlength="250"  class="form-control"></input>
-						<div class="help-text">
-						<i>Maximo 250 caracteres</i>
-					</div>
+						required minlength="20" th:field="*{descripcionRecomendacion}"
+						class="form-control"></input>
 				</div>
 				<br>
 
